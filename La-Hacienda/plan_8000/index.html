@@ -1,47 +1,144 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La Hacienda · Carnicería en la Moderna</title>
-<link rel="stylesheet" href="css/styles.css"></head>
-<body><div class="demo">Demo Plan A la medida ($8,000+). Precios, horarios y teléfono son de ejemplo.</div><div class="band" aria-hidden="true"></div>
-<div class="wrap"><nav aria-label="Principal"><b>La Hacienda</b><div><a href="#cortes">Cortes</a><a href="#pedido">Pide en línea</a><a href="#carnicero">Panel</a><a href="#visitanos">Visítanos</a></div></nav>
-<header class="hero"><p class="tag">Carnicería · Colonia Moderna, Monterrey</p>
-<h1>Carne de la <span>buena.</span></h1>
-<p class="l">Cortes frescos del día, cortados como tú los pides. Para la carne asada del domingo o la comida diaria.</p>
-<a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt" href="#cortes">Ver cortes</a></header></div>
-<section id="cortes"><div class="wrap"><h2>Nuestros cortes</h2><p class="sub">Todo fresco, todos los días.</p><div class="grid">
-<div class="card"><h3>Res</h3><ul><li>Arrachera</li><li>Ribeye</li><li>Bistec y costilla</li><li>Molida</li></ul></div>
-<div class="card"><h3>Cerdo</h3><ul><li>Chuleta</li><li>Costilla</li><li>Chorizo</li></ul></div>
-<div class="card"><h3>Pollo</h3><ul><li>Pechuga</li><li>Muslo y pierna</li><li>Pollo entero</li></ul></div>
-<div class="card"><h3>Del norte</h3><ul><li>Machaca</li><li>Cabrito por encargo</li><li>Carne para asar</li></ul></div></div></div></section>
-<section id="porque"><div class="wrap"><h2>Por qué La Hacienda</h2><div class="grid">
-<div class="card"><h3>Fresco del día</h3><p>Surtimos cada mañana.</p></div>
-<div class="card"><h3>A tu gusto</h3><p>Lo cortamos como lo pidas: delgado, grueso o en trozo.</p></div>
-<div class="card"><h3>Para la carne asada</h3><p>Paquetes listos para el fin de semana.</p></div></div></div></section><section id="pedido"><div class="wrap"><h2>Pide en línea</h2><p class="sub">Escribe los kilos de cada corte y envía tu pedido por WhatsApp.</p>
-<div id="items"></div><div class="tot" id="tot">Total aprox.: $0</div>
-<form id="pedidoF"><input id="nom" placeholder="Tu nombre" aria-label="Tu nombre">
-<select id="ent" aria-label="Entrega"><option>Paso por él</option><option>A domicilio</option></select>
-<button class="btn" type="submit">Enviar pedido</button></form></div></section>
-<section id="carnicero"><div class="wrap"><h2>Panel del carnicero</h2><p class="sub">Aquí se cambian los precios del día. En la versión final tendría contraseña.</p>
-<div class="grid" id="admin"></div><p><button class="btn alt" id="reset" type="button">Restablecer precios</button></p></div></section>
-<section id="visitanos"><div class="wrap"><h2>Visítanos</h2>
-<p class="sub">Colonia Moderna, Monterrey, N.L.<br>Lun a sáb 8:00 am a 7:00 pm · Dom 8:00 am a 3:00 pm</p>
-<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Carniceria+La+Hacienda+Moderna+Monterrey">Cómo llegar</a>
-<a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a></div></section>
-<footer><div class="wrap">Demo creada por NovaWeb para La Hacienda.</div></footer><script>
-const P0=[['Arrachera',289],['Ribeye',349],['Bistec',219],['Molida',169],['Chuleta',119],['Costilla',139],['Chorizo',129],['Pechuga',109],['Machaca',399]],$=i=>document.getElementById(i),Q={};
-let P;try{P=JSON.parse(localStorage.getItem('precios'))}catch(e){}
-if(!Array.isArray(P)||P.length!==P0.length)P=P0.map(x=>[...x]);
-const save=()=>{try{localStorage.setItem('precios',JSON.stringify(P))}catch(e){}};
-const tot=()=>{$('tot').textContent='Total aprox.: $'+P.reduce((s,p,i)=>s+p[1]*(Q[i]||0),0).toLocaleString('es-MX')};
-function items(){$('items').innerHTML=P.map((p,i)=>`<div class="row"><span>${p[0]}</span><span>$${p[1]}/kg</span><input type="number" min="0" step="0.5" value="${Q[i]||''}" data-i="${i}" aria-label="Kilos de ${p[0]}"></div>`).join('');tot()}
-function admin(){$('admin').innerHTML=P.map((p,i)=>`<label>${p[0]}<br><input type="number" min="0" value="${p[1]}" data-p="${i}"></label>`).join('')}
-$('items').addEventListener('input',e=>{Q[e.target.dataset.i]=+e.target.value||0;tot()});
-$('admin').addEventListener('input',e=>{P[e.target.dataset.p][1]=+e.target.value||0;save();items()});
-$('reset').addEventListener('click',()=>{P=P0.map(x=>[...x]);save();items();admin()});
-$('pedidoF').addEventListener('submit',e=>{e.preventDefault();
-const l=P.map((p,i)=>Q[i]>0?Q[i]+' kg de '+p[0]:'').filter(Boolean);if(!l.length)return;
-location.href='https://wa.me/528100000000?text='+encodeURIComponent('Hola, soy '+($('nom').value||'cliente')+'. Quiero: '+l.join(', ')+'. '+$('tot').textContent+'. Entrega: '+$('ent').value+'.')});
-items();admin();
-</script>
-</body></html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>La Hacienda · Carnicería en la Moderna</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="demo">Demo Plan A la medida ($8,000+). Precios, horarios y teléfono son de ejemplo.</div>
+    <div class="band" aria-hidden="true"></div>
+    <div class="wrap">
+        <nav aria-label="Principal"><b>La Hacienda</b>
+            <div><a href="#cortes">Cortes</a><a href="#pedido">Pide en línea</a><a href="#carnicero">Panel</a><a
+                    href="#visitanos">Visítanos</a></div>
+        </nav>
+        <header class="hero">
+            <p class="tag">Carnicería · Colonia Moderna, Monterrey</p>
+            <h1>Carne de la <span>buena.</span></h1>
+            <p class="l">Cortes frescos del día, cortados como tú los pides. Para la carne asada del domingo o la comida
+                diaria.</p>
+            <a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt" href="#cortes">Ver
+                cortes</a>
+        </header>
+    </div>
+    <section id="cortes">
+        <div class="wrap">
+            <h2>Nuestros cortes</h2>
+            <p class="sub">Todo fresco, todos los días.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Res</h3>
+                    <ul>
+                        <li>Arrachera</li>
+                        <li>Ribeye</li>
+                        <li>Bistec y costilla</li>
+                        <li>Molida</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Cerdo</h3>
+                    <ul>
+                        <li>Chuleta</li>
+                        <li>Costilla</li>
+                        <li>Chorizo</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Pollo</h3>
+                    <ul>
+                        <li>Pechuga</li>
+                        <li>Muslo y pierna</li>
+                        <li>Pollo entero</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Del norte</h3>
+                    <ul>
+                        <li>Machaca</li>
+                        <li>Cabrito por encargo</li>
+                        <li>Carne para asar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="porque">
+        <div class="wrap">
+            <h2>Por qué La Hacienda</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Fresco del día</h3>
+                    <p>Surtimos cada mañana.</p>
+                </div>
+                <div class="card">
+                    <h3>A tu gusto</h3>
+                    <p>Lo cortamos como lo pidas: delgado, grueso o en trozo.</p>
+                </div>
+                <div class="card">
+                    <h3>Para la carne asada</h3>
+                    <p>Paquetes listos para el fin de semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pedido">
+        <div class="wrap">
+            <h2>Pide en línea</h2>
+            <p class="sub">Escribe los kilos de cada corte y envía tu pedido por WhatsApp.</p>
+            <div id="items"></div>
+            <div class="tot" id="tot">Total aprox.: $0</div>
+            <form id="pedidoF"><input id="nom" placeholder="Tu nombre" aria-label="Tu nombre">
+                <select id="ent" aria-label="Entrega">
+                    <option>Paso por él</option>
+                    <option>A domicilio</option>
+                </select>
+                <button class="btn" type="submit">Enviar pedido</button>
+            </form>
+        </div>
+    </section>
+    <section id="carnicero">
+        <div class="wrap">
+            <h2>Panel del carnicero</h2>
+            <p class="sub">Aquí se cambian los precios del día. En la versión final tendría contraseña.</p>
+            <div class="grid" id="admin"></div>
+            <p><button class="btn alt" id="reset" type="button">Restablecer precios</button></p>
+        </div>
+    </section>
+    <section id="visitanos">
+        <div class="wrap">
+            <h2>Visítanos</h2>
+            <p class="sub">Colonia Moderna, Monterrey, N.L.<br>Lun a sáb 8:00 am a 7:00 pm · Dom 8:00 am a 3:00 pm</p>
+            <a class="btn"
+                href="https://www.google.com/maps/search/?api=1&query=Carniceria+La+Hacienda+Moderna+Monterrey">Cómo
+                llegar</a>
+            <a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a>
+        </div>
+    </section>
+    <footer>
+        <div class="wrap">Demo creada por NovaWeb para La Hacienda.</div>
+    </footer>
+    <script>
+        const P0 = [['Arrachera', 289], ['Ribeye', 349], ['Bistec', 219], ['Molida', 169], ['Chuleta', 119], ['Costilla', 139], ['Chorizo', 129], ['Pechuga', 109], ['Machaca', 399]], $ = i => document.getElementById(i), Q = {};
+        let P; try { P = JSON.parse(localStorage.getItem('precios')) } catch (e) { }
+        if (!Array.isArray(P) || P.length !== P0.length) P = P0.map(x => [...x]);
+        const save = () => { try { localStorage.setItem('precios', JSON.stringify(P)) } catch (e) { } };
+        const tot = () => { $('tot').textContent = 'Total aprox.: $' + P.reduce((s, p, i) => s + p[1] * (Q[i] || 0), 0).toLocaleString('es-MX') };
+        function items() { $('items').innerHTML = P.map((p, i) => `<div class="row"><span>${p[0]}</span><span>$${p[1]}/kg</span><input type="number" min="0" step="0.5" value="${Q[i] || ''}" data-i="${i}" aria-label="Kilos de ${p[0]}"></div>`).join(''); tot() }
+        function admin() { $('admin').innerHTML = P.map((p, i) => `<label>${p[0]}<br><input type="number" min="0" value="${p[1]}" data-p="${i}"></label>`).join('') }
+        $('items').addEventListener('input', e => { Q[e.target.dataset.i] = +e.target.value || 0; tot() });
+        $('admin').addEventListener('input', e => { P[e.target.dataset.p][1] = +e.target.value || 0; save(); items() });
+        $('reset').addEventListener('click', () => { P = P0.map(x => [...x]); save(); items(); admin() });
+        $('pedidoF').addEventListener('submit', e => {
+            e.preventDefault();
+            const l = P.map((p, i) => Q[i] > 0 ? Q[i] + ' kg de ' + p[0] : '').filter(Boolean); if (!l.length) return;
+            location.href = 'https://wa.me/528100000000?text=' + encodeURIComponent('Hola, soy ' + ($('nom').value || 'cliente') + '. Quiero: ' + l.join(', ') + '. ' + $('tot').textContent + '. Entrega: ' + $('ent').value + '.')
+        });
+        items(); admin();
+    </script>
+</body>
+
+</html>

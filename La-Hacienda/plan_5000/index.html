@@ -1,37 +1,220 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La Hacienda · Carnicería en la Moderna</title>
-<link rel="stylesheet" href="css/styles.css"></head>
-<body><div class="demo">Demo Plan Pymes ($5,000). Precios, horarios y teléfono son de ejemplo.</div><div class="band" aria-hidden="true"></div>
-<div class="wrap"><nav aria-label="Principal"><b>La Hacienda</b><div><a href="#cortes">Cortes</a><a href="#precios">Precios</a><a href="#pedido">Pedido</a><a href="#visitanos">Visítanos</a></div></nav>
-<header class="hero"><p class="tag">Carnicería · Colonia Moderna, Monterrey</p>
-<h1>Carne de la <span>buena.</span></h1>
-<p class="l">Cortes frescos del día, cortados como tú los pides. Para la carne asada del domingo o la comida diaria.</p>
-<a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt" href="#cortes">Ver cortes</a></header></div>
-<section id="cortes"><div class="wrap"><h2>Nuestros cortes</h2><p class="sub">Todo fresco, todos los días.</p><div class="grid">
-<div class="card"><h3>Res</h3><ul><li>Arrachera</li><li>Ribeye</li><li>Bistec y costilla</li><li>Molida</li></ul></div>
-<div class="card"><h3>Cerdo</h3><ul><li>Chuleta</li><li>Costilla</li><li>Chorizo</li></ul></div>
-<div class="card"><h3>Pollo</h3><ul><li>Pechuga</li><li>Muslo y pierna</li><li>Pollo entero</li></ul></div>
-<div class="card"><h3>Del norte</h3><ul><li>Machaca</li><li>Cabrito por encargo</li><li>Carne para asar</li></ul></div></div></div></section>
-<section id="porque"><div class="wrap"><h2>Por qué La Hacienda</h2><div class="grid">
-<div class="card"><h3>Fresco del día</h3><p>Surtimos cada mañana.</p></div>
-<div class="card"><h3>A tu gusto</h3><p>Lo cortamos como lo pidas: delgado, grueso o en trozo.</p></div>
-<div class="card"><h3>Para la carne asada</h3><p>Paquetes listos para el fin de semana.</p></div></div></div></section><section id="precios"><div class="wrap"><h2>Lista de precios</h2><p class="sub">Precio por kilo, de ejemplo. Pueden cambiar según el día.</p><div class="table"><table><thead><tr><th>Corte</th><th>Tipo</th><th>Precio/kg</th></tr></thead><tbody><tr><td>Arrachera</td><td>Res</td><td>$289</td></tr><tr><td>Ribeye</td><td>Res</td><td>$349</td></tr><tr><td>Bistec</td><td>Res</td><td>$219</td></tr><tr><td>Molida</td><td>Res</td><td>$169</td></tr><tr><td>Chuleta</td><td>Cerdo</td><td>$119</td></tr><tr><td>Costilla</td><td>Cerdo</td><td>$139</td></tr><tr><td>Chorizo</td><td>Cerdo</td><td>$129</td></tr><tr><td>Pechuga</td><td>Pollo</td><td>$109</td></tr><tr><td>Machaca</td><td>Del norte</td><td>$399</td></tr></tbody></table></div></div></section><section id="paquetes"><div class="wrap"><h2>Paquetes para asar</h2><div class="grid">
-<div class="card"><h3>Familiar</h3><p>2 kg de arrachera, 1 kg de chorizo y 1 kg de costilla.</p><div class="price">$1,200</div></div>
-<div class="card"><h3>Domingo</h3><p>4 kg entre arrachera, chorizo y pollo.</p><div class="price">$1,550</div></div>
-<div class="card"><h3>Fiesta</h3><p>8 kg surtidos para 15 personas.</p><div class="price">$2,900</div></div></div></div></section><section id="pedido"><div class="wrap"><h2>Haz tu pedido</h2><p class="sub">Llena esto y se abre WhatsApp con tu pedido listo.</p>
-<form id="pedidoF"><input name="n" placeholder="Tu nombre" aria-label="Tu nombre" required>
-<select name="c" aria-label="Corte"><option>Arrachera</option><option>Ribeye</option><option>Bistec</option><option>Molida</option><option>Chuleta</option><option>Costilla</option><option>Chorizo</option><option>Pechuga</option><option>Machaca</option></select>
-<input name="k" type="number" min="0.5" step="0.5" value="1" aria-label="Kilos">
-<select name="e" aria-label="Entrega"><option>Paso por él</option><option>A domicilio</option></select>
-<button class="btn" type="submit">Enviar pedido</button></form></div></section>
-<section id="visitanos"><div class="wrap"><h2>Visítanos</h2>
-<p class="sub">Colonia Moderna, Monterrey, N.L.<br>Lun a sáb 8:00 am a 7:00 pm · Dom 8:00 am a 3:00 pm</p>
-<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Carniceria+La+Hacienda+Moderna+Monterrey">Cómo llegar</a>
-<a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a></div></section>
-<footer><div class="wrap">Demo creada por NovaWeb para La Hacienda.</div></footer><script>
-document.getElementById('pedidoF').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
-location.href='https://wa.me/528100000000?text='+encodeURIComponent('Hola, soy '+f.n.value+'. Quiero '+f.k.value+' kg de '+f.c.value+'. Entrega: '+f.e.value+'.')});
-</script>
-</body></html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>La Hacienda · Carnicería en la Moderna</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="demo">Demo Plan Pymes ($5,000). Precios, horarios y teléfono son de ejemplo.</div>
+    <div class="band" aria-hidden="true"></div>
+    <div class="wrap">
+        <nav aria-label="Principal"><b>La Hacienda</b>
+            <div><a href="#cortes">Cortes</a><a href="#precios">Precios</a><a href="#pedido">Pedido</a><a
+                    href="#visitanos">Visítanos</a></div>
+        </nav>
+        <header class="hero">
+            <p class="tag">Carnicería · Colonia Moderna, Monterrey</p>
+            <h1>Carne de la <span>buena.</span></h1>
+            <p class="l">Cortes frescos del día, cortados como tú los pides. Para la carne asada del domingo o la comida
+                diaria.</p>
+            <a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt" href="#cortes">Ver
+                cortes</a>
+        </header>
+    </div>
+    <section id="cortes">
+        <div class="wrap">
+            <h2>Nuestros cortes</h2>
+            <p class="sub">Todo fresco, todos los días.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Res</h3>
+                    <ul>
+                        <li>Arrachera</li>
+                        <li>Ribeye</li>
+                        <li>Bistec y costilla</li>
+                        <li>Molida</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Cerdo</h3>
+                    <ul>
+                        <li>Chuleta</li>
+                        <li>Costilla</li>
+                        <li>Chorizo</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Pollo</h3>
+                    <ul>
+                        <li>Pechuga</li>
+                        <li>Muslo y pierna</li>
+                        <li>Pollo entero</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Del norte</h3>
+                    <ul>
+                        <li>Machaca</li>
+                        <li>Cabrito por encargo</li>
+                        <li>Carne para asar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="porque">
+        <div class="wrap">
+            <h2>Por qué La Hacienda</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Fresco del día</h3>
+                    <p>Surtimos cada mañana.</p>
+                </div>
+                <div class="card">
+                    <h3>A tu gusto</h3>
+                    <p>Lo cortamos como lo pidas: delgado, grueso o en trozo.</p>
+                </div>
+                <div class="card">
+                    <h3>Para la carne asada</h3>
+                    <p>Paquetes listos para el fin de semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="precios">
+        <div class="wrap">
+            <h2>Lista de precios</h2>
+            <p class="sub">Precio por kilo, de ejemplo. Pueden cambiar según el día.</p>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Corte</th>
+                            <th>Tipo</th>
+                            <th>Precio/kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arrachera</td>
+                            <td>Res</td>
+                            <td>$289</td>
+                        </tr>
+                        <tr>
+                            <td>Ribeye</td>
+                            <td>Res</td>
+                            <td>$349</td>
+                        </tr>
+                        <tr>
+                            <td>Bistec</td>
+                            <td>Res</td>
+                            <td>$219</td>
+                        </tr>
+                        <tr>
+                            <td>Molida</td>
+                            <td>Res</td>
+                            <td>$169</td>
+                        </tr>
+                        <tr>
+                            <td>Chuleta</td>
+                            <td>Cerdo</td>
+                            <td>$119</td>
+                        </tr>
+                        <tr>
+                            <td>Costilla</td>
+                            <td>Cerdo</td>
+                            <td>$139</td>
+                        </tr>
+                        <tr>
+                            <td>Chorizo</td>
+                            <td>Cerdo</td>
+                            <td>$129</td>
+                        </tr>
+                        <tr>
+                            <td>Pechuga</td>
+                            <td>Pollo</td>
+                            <td>$109</td>
+                        </tr>
+                        <tr>
+                            <td>Machaca</td>
+                            <td>Del norte</td>
+                            <td>$399</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="paquetes">
+        <div class="wrap">
+            <h2>Paquetes para asar</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Familiar</h3>
+                    <p>2 kg de arrachera, 1 kg de chorizo y 1 kg de costilla.</p>
+                    <div class="price">$1,200</div>
+                </div>
+                <div class="card">
+                    <h3>Domingo</h3>
+                    <p>4 kg entre arrachera, chorizo y pollo.</p>
+                    <div class="price">$1,550</div>
+                </div>
+                <div class="card">
+                    <h3>Fiesta</h3>
+                    <p>8 kg surtidos para 15 personas.</p>
+                    <div class="price">$2,900</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pedido">
+        <div class="wrap">
+            <h2>Haz tu pedido</h2>
+            <p class="sub">Llena esto y se abre WhatsApp con tu pedido listo.</p>
+            <form id="pedidoF"><input name="n" placeholder="Tu nombre" aria-label="Tu nombre" required>
+                <select name="c" aria-label="Corte">
+                    <option>Arrachera</option>
+                    <option>Ribeye</option>
+                    <option>Bistec</option>
+                    <option>Molida</option>
+                    <option>Chuleta</option>
+                    <option>Costilla</option>
+                    <option>Chorizo</option>
+                    <option>Pechuga</option>
+                    <option>Machaca</option>
+                </select>
+                <input name="k" type="number" min="0.5" step="0.5" value="1" aria-label="Kilos">
+                <select name="e" aria-label="Entrega">
+                    <option>Paso por él</option>
+                    <option>A domicilio</option>
+                </select>
+                <button class="btn" type="submit">Enviar pedido</button>
+            </form>
+        </div>
+    </section>
+    <section id="visitanos">
+        <div class="wrap">
+            <h2>Visítanos</h2>
+            <p class="sub">Colonia Moderna, Monterrey, N.L.<br>Lun a sáb 8:00 am a 7:00 pm · Dom 8:00 am a 3:00 pm</p>
+            <a class="btn"
+                href="https://www.google.com/maps/search/?api=1&query=Carniceria+La+Hacienda+Moderna+Monterrey">Cómo
+                llegar</a>
+            <a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a>
+        </div>
+    </section>
+    <footer>
+        <div class="wrap">Demo creada por NovaWeb para La Hacienda.</div>
+    </footer>
+    <script>
+        document.getElementById('pedidoF').addEventListener('submit', e => {
+            e.preventDefault(); const f = e.target;
+            location.href = 'https://wa.me/528100000000?text=' + encodeURIComponent('Hola, soy ' + f.n.value + '. Quiero ' + f.k.value + ' kg de ' + f.c.value + '. Entrega: ' + f.e.value + '.')
+        });
+    </script>
+</body>
+
+</html>

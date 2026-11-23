@@ -1,37 +1,206 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mariscos El Burro Feliz · Colonia Moderna</title>
-<link rel="stylesheet" href="css/styles.css"></head>
-<body><div class="demo">Demo Plan Pymes ($5,000). Precios, horarios y teléfono son de ejemplo.</div><div class="band" aria-hidden="true"></div>
-<div class="wrap"><nav aria-label="Principal"><b>El Burro Feliz</b><div><a href="#menu">Menú</a><a href="#precios">Precios</a><a href="#pedido">Pedido</a><a href="#visitanos">Visítanos</a></div></nav>
-<header class="hero"><div><p class="tag">Mariscos · Colonia Moderna, Monterrey</p>
-<h1>Mariscos que te ponen <span>feliz.</span></h1>
-<p class="l">Cócteles, ceviches, caldos y platillos frescos para comer aquí o llevar.</p>
-<a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt" href="#menu">Ver menú</a></div><img class="logo" src="img/logo-burro-feliz.png" alt="Logo de Mariscos El Burro Feliz: un burro sonriendo frente a una playa"></header></div>
-<section id="menu"><div class="wrap"><h2>Nuestro menú</h2><p class="sub">Todo preparado al momento.</p><div class="grid">
-<div class="card"><h3>Cócteles</h3><ul><li>Camarón</li><li>Pulpo</li><li>Campechano</li></ul></div>
-<div class="card"><h3>Ceviches</h3><ul><li>Ceviche de pescado</li><li>Aguachile</li><li>Tostadas</li></ul></div>
-<div class="card"><h3>Caldos</h3><ul><li>Siete mares</li><li>De camarón</li><li>De pescado</li></ul></div>
-<div class="card"><h3>Platillos</h3><ul><li>Camarones a la diabla</li><li>Filete empanizado</li><li>Empanadas de camarón</li></ul></div></div></div></section>
-<section id="porque"><div class="wrap"><h2>Por qué El Burro Feliz</h2><div class="grid">
-<div class="card"><h3>Fresco</h3><p>Producto del día, sin congelados viejos.</p></div>
-<div class="card"><h3>A tu gusto</h3><p>Picante, limón y sazón como lo pidas.</p></div>
-<div class="card"><h3>Para llevar</h3><p>Pide por WhatsApp y pasa por tu orden.</p></div></div></div></section><section id="precios"><div class="wrap"><h2>Precios</h2><p class="sub">Precios de ejemplo; pueden cambiar según el día.</p><div class="table"><table><thead><tr><th>Platillo</th><th>Precio</th></tr></thead><tbody><tr><td>Cóctel de camarón</td><td>$140</td></tr><tr><td>Aguachile</td><td>$160</td></tr><tr><td>Ceviche de pescado</td><td>$110</td></tr><tr><td>Tostada de pulpo</td><td>$65</td></tr><tr><td>Caldo siete mares</td><td>$190</td></tr><tr><td>Camarones a la diabla</td><td>$210</td></tr><tr><td>Filete empanizado</td><td>$150</td></tr><tr><td>Empanada de camarón</td><td>$45</td></tr></tbody></table></div></div></section><section id="combos"><div class="wrap"><h2>Combos</h2><div class="grid">
-<div class="card"><h3>Para 2</h3><p>2 cócteles y 1 aguachile.</p><div class="price">$390</div></div>
-<div class="card"><h3>Familiar</h3><p>Charola mixta para 4 personas.</p><div class="price">$780</div></div>
-<div class="card"><h3>Mariscada</h3><p>Surtido grande para 6 personas.</p><div class="price">$1,250</div></div></div></div></section><section id="pedido"><div class="wrap"><h2>Haz tu pedido</h2><p class="sub">Llena esto y se abre WhatsApp con tu pedido listo.</p>
-<form id="pedidoF"><input name="n" placeholder="Tu nombre" aria-label="Tu nombre" required>
-<select name="c" aria-label="Platillo"><option>Cóctel de camarón</option><option>Aguachile</option><option>Ceviche de pescado</option><option>Tostada de pulpo</option><option>Caldo siete mares</option><option>Camarones a la diabla</option><option>Filete empanizado</option><option>Empanada de camarón</option></select>
-<input name="k" type="number" min="1" step="1" value="1" aria-label="Cantidad">
-<select name="e" aria-label="Entrega"><option>Paso por él</option><option>A domicilio</option></select>
-<button class="btn" type="submit">Enviar pedido</button></form></div></section>
-<section id="visitanos"><div class="wrap"><h2>Visítanos</h2>
-<p class="sub">Colonia Moderna, Monterrey, N.L.<br>Mar a dom 12:00 pm a 8:00 pm · Cerrado los lunes</p>
-<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mariscos+El+Burro+Feliz+Moderna+Monterrey">Cómo llegar</a>
-<a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a></div></section>
-<footer><div class="wrap">Demo creada por NovaWeb para Mariscos El Burro Feliz.</div></footer><script>
-document.getElementById('pedidoF').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
-location.href='https://wa.me/528100000000?text='+encodeURIComponent('Hola, soy '+f.n.value+'. Quiero '+f.k.value+' de '+f.c.value+'. Entrega: '+f.e.value+'.')});
-</script>
-</body></html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Mariscos El Burro Feliz · Colonia Moderna</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="demo">Demo Plan Pymes ($5,000). Precios, horarios y teléfono son de ejemplo.</div>
+    <div class="band" aria-hidden="true"></div>
+    <div class="wrap">
+        <nav aria-label="Principal"><b>El Burro Feliz</b>
+            <div><a href="#menu">Menú</a><a href="#precios">Precios</a><a href="#pedido">Pedido</a><a
+                    href="#visitanos">Visítanos</a></div>
+        </nav>
+        <header class="hero">
+            <div>
+                <p class="tag">Mariscos · Colonia Moderna, Monterrey</p>
+                <h1>Mariscos que te ponen <span>feliz.</span></h1>
+                <p class="l">Cócteles, ceviches, caldos y platillos frescos para comer aquí o llevar.</p>
+                <a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt"
+                    href="#menu">Ver menú</a>
+            </div><img class="logo" src="img/logo-burro-feliz.png"
+                alt="Logo de Mariscos El Burro Feliz: un burro sonriendo frente a una playa">
+        </header>
+    </div>
+    <section id="menu">
+        <div class="wrap">
+            <h2>Nuestro menú</h2>
+            <p class="sub">Todo preparado al momento.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Cócteles</h3>
+                    <ul>
+                        <li>Camarón</li>
+                        <li>Pulpo</li>
+                        <li>Campechano</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Ceviches</h3>
+                    <ul>
+                        <li>Ceviche de pescado</li>
+                        <li>Aguachile</li>
+                        <li>Tostadas</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Caldos</h3>
+                    <ul>
+                        <li>Siete mares</li>
+                        <li>De camarón</li>
+                        <li>De pescado</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Platillos</h3>
+                    <ul>
+                        <li>Camarones a la diabla</li>
+                        <li>Filete empanizado</li>
+                        <li>Empanadas de camarón</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="porque">
+        <div class="wrap">
+            <h2>Por qué El Burro Feliz</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Fresco</h3>
+                    <p>Producto del día, sin congelados viejos.</p>
+                </div>
+                <div class="card">
+                    <h3>A tu gusto</h3>
+                    <p>Picante, limón y sazón como lo pidas.</p>
+                </div>
+                <div class="card">
+                    <h3>Para llevar</h3>
+                    <p>Pide por WhatsApp y pasa por tu orden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="precios">
+        <div class="wrap">
+            <h2>Precios</h2>
+            <p class="sub">Precios de ejemplo; pueden cambiar según el día.</p>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platillo</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cóctel de camarón</td>
+                            <td>$140</td>
+                        </tr>
+                        <tr>
+                            <td>Aguachile</td>
+                            <td>$160</td>
+                        </tr>
+                        <tr>
+                            <td>Ceviche de pescado</td>
+                            <td>$110</td>
+                        </tr>
+                        <tr>
+                            <td>Tostada de pulpo</td>
+                            <td>$65</td>
+                        </tr>
+                        <tr>
+                            <td>Caldo siete mares</td>
+                            <td>$190</td>
+                        </tr>
+                        <tr>
+                            <td>Camarones a la diabla</td>
+                            <td>$210</td>
+                        </tr>
+                        <tr>
+                            <td>Filete empanizado</td>
+                            <td>$150</td>
+                        </tr>
+                        <tr>
+                            <td>Empanada de camarón</td>
+                            <td>$45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="combos">
+        <div class="wrap">
+            <h2>Combos</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Para 2</h3>
+                    <p>2 cócteles y 1 aguachile.</p>
+                    <div class="price">$390</div>
+                </div>
+                <div class="card">
+                    <h3>Familiar</h3>
+                    <p>Charola mixta para 4 personas.</p>
+                    <div class="price">$780</div>
+                </div>
+                <div class="card">
+                    <h3>Mariscada</h3>
+                    <p>Surtido grande para 6 personas.</p>
+                    <div class="price">$1,250</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pedido">
+        <div class="wrap">
+            <h2>Haz tu pedido</h2>
+            <p class="sub">Llena esto y se abre WhatsApp con tu pedido listo.</p>
+            <form id="pedidoF"><input name="n" placeholder="Tu nombre" aria-label="Tu nombre" required>
+                <select name="c" aria-label="Platillo">
+                    <option>Cóctel de camarón</option>
+                    <option>Aguachile</option>
+                    <option>Ceviche de pescado</option>
+                    <option>Tostada de pulpo</option>
+                    <option>Caldo siete mares</option>
+                    <option>Camarones a la diabla</option>
+                    <option>Filete empanizado</option>
+                    <option>Empanada de camarón</option>
+                </select>
+                <input name="k" type="number" min="1" step="1" value="1" aria-label="Cantidad">
+                <select name="e" aria-label="Entrega">
+                    <option>Paso por él</option>
+                    <option>A domicilio</option>
+                </select>
+                <button class="btn" type="submit">Enviar pedido</button>
+            </form>
+        </div>
+    </section>
+    <section id="visitanos">
+        <div class="wrap">
+            <h2>Visítanos</h2>
+            <p class="sub">Colonia Moderna, Monterrey, N.L.<br>Mar a dom 12:00 pm a 8:00 pm · Cerrado los lunes</p>
+            <a class="btn"
+                href="https://www.google.com/maps/search/?api=1&query=Mariscos+El+Burro+Feliz+Moderna+Monterrey">Cómo
+                llegar</a>
+            <a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a>
+        </div>
+    </section>
+    <footer>
+        <div class="wrap">Demo creada por NovaWeb para Mariscos El Burro Feliz.</div>
+    </footer>
+    <script>
+        document.getElementById('pedidoF').addEventListener('submit', e => {
+            e.preventDefault(); const f = e.target;
+            location.href = 'https://wa.me/528100000000?text=' + encodeURIComponent('Hola, soy ' + f.n.value + '. Quiero ' + f.k.value + ' de ' + f.c.value + '. Entrega: ' + f.e.value + '.')
+        });
+    </script>
+</body>
+
+</html>
