@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Consultorio Dental · Monterrey</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <div class="demo">Demo Plan A la medida ($8,000+). Precios, horarios y teléfono son de ejemplo.</div>
+
+    <div class="wrap">
+      <nav aria-label="Principal">
+        <b>Consultorio Dental</b>
+        <div>
+          <a href="#servicios">Servicios</a>
+          <a href="#agenda">Agenda</a>
+          <a href="#panel">Panel</a>
+          <a href="#visitanos">Visítanos</a>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <div>
+          <p class="tag">Consultorio dental · Monterrey, N.L.</p>
+          <h1>Tu sonrisa, en <span>buenas manos.</span></h1>
+          <p class="lead">Atención con calma, material esterilizado y tratamientos claros, sin sorpresas.</p>
+          <a class="btn" href="https://wa.me/528100000000">Agendar cita por WhatsApp</a>
+          <a class="btn alt" href="#servicios">Ver servicios</a>
+        </div>
+        <aside class="aside">
+          <h3>Primera valoración sin costo</h3>
+          <p>Lun a vie 9:00 am a 7:00 pm<br>Sáb 9:00 am a 2:00 pm</p>
+          <a class="btn" href="https://wa.me/528100000000">Reservar</a>
+        </aside>
+      </header>
+    </div>
+
+    <section id="servicios">
+      <div class="wrap">
+        <h2>Servicios</h2>
+        <p class="sub">Atención dental completa para toda la familia.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Limpieza dental</h3>
+            <p>Elimina sarro y manchas para encías y dientes sanos.</p>
+          </div>
+          <div class="card">
+            <h3>Resinas</h3>
+            <p>Reparamos caries con material del color de tu diente.</p>
+          </div>
+          <div class="card">
+            <h3>Blanqueamiento</h3>
+            <p>Una sonrisa más clara en una sola sesión.</p>
+          </div>
+          <div class="card">
+            <h3>Extracciones</h3>
+            <p>Con anestesia y cuidado, incluso muelas del juicio.</p>
+          </div>
+          <div class="card">
+            <h3>Ortodoncia</h3>
+            <p>Valoración y tratamiento con brackets.</p>
+          </div>
+          <div class="card">
+            <h3>Urgencias</h3>
+            <p>Dolor o diente roto: te atendemos lo antes posible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda">
+      <div class="wrap">
+        <h2>Agenda en línea</h2>
+        <p class="sub">Escribe tu nombre, elige servicio y día, y toca un horario disponible.</p>
+        <div class="fila">
+          <input id="nom" placeholder="Tu nombre" aria-label="Tu nombre">
+          <select id="srv" aria-label="Servicio">
+            <option>Limpieza dental</option>
+            <option>Resinas</option>
+            <option>Blanqueamiento</option>
+            <option>Extracciones</option>
+            <option>Ortodoncia</option>
+            <option>Urgencias</option>
+          </select>
+          <select id="dia" aria-label="Día">
+            <option>Lunes</option>
+            <option>Martes</option>
+            <option>Miércoles</option>
+            <option>Jueves</option>
+            <option>Viernes</option>
+            <option>Sábado</option>
+          </select>
+        </div>
+        <div class="slots" id="slots"></div>
+      </div>
+    </section>
+
+    <section id="panel">
+      <div class="wrap">
+        <h2>Panel del consultorio</h2>
+        <p class="sub">Así vería la recepción las citas. En la versión final tendría contraseña.</p>
+        <ul class="lista" id="citas"></ul>
+        <button class="btn alt" id="vaciar" type="button">Vaciar citas</button>
+      </div>
+    </section>
+
+    <section id="visitanos">
+      <div class="wrap">
+        <h2>Visítanos</h2>
+        <p class="sub">Monterrey, N.L.<br>Lun a vie 9:00 am a 7:00 pm · Sáb 9:00 am a 2:00 pm</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Consultorio+dental+Monterrey">Cómo llegar</a>
+        <a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">Demo creada por NovaWeb para un consultorio dental.</div>
+    </footer>
+
+    <script>
+      const HORAS = ['9:00 am', '10:00 am', '11:00 am', '12:00 pm', '4:00 pm', '5:00 pm'];
+      const $ = (id) => document.getElementById(id);
+      const esc = (s) => s.replace(/[&<>"']/g, (m) => '&#' + m.charCodeAt(0) + ';');
+
+      let citas = [];
+      try { citas = JSON.parse(localStorage.getItem('citas')) || []; } catch (e) {}
+
+      const guardar = () => {
+        try { localStorage.setItem('citas', JSON.stringify(citas)); } catch (e) {}
+      };
+      const ocupada = (d, h) => citas.some((c) => c.d === d && c.h === h);
+
+      function dibujar() {
+        const dia = $('dia').value;
+
+        $('slots').innerHTML = HORAS.map((h) => {
+          const o = ocupada(dia, h);
+          return `<button class="slot" data-h="${h}" ${o ? 'disabled' : ''}>${h}${o ? ' · ocupado' : ''}</button>`;
+        }).join('');
+
+        $('citas').innerHTML = citas.length
+          ? citas.map((c, i) => `<li>${esc(c.n)} · ${esc(c.s)} · ${c.d} ${c.h} <button class="link" data-i="${i}">Cancelar</button></li>`).join('')
+          : '<li>Sin citas todavía.</li>';
+      }
+
+      $('dia').addEventListener('change', dibujar);
+
+      $('slots').addEventListener('click', (e) => {
+        const h = e.target.dataset.h;
+        const n = $('nom').value.trim();
+        if (!h) return;
+        if (!n) { $('nom').focus(); return; }
+        citas.push({ n, s: $('srv').value, d: $('dia').value, h });
+        guardar();
+        dibujar();
+      });
+
+      $('citas').addEventListener('click', (e) => {
+        const i = e.target.dataset.i;
+        if (i === undefined) return;
+        citas.splice(i, 1);
+        guardar();
+        dibujar();
+      });
+
+      $('vaciar').addEventListener('click', () => {
+        citas = [];
+        guardar();
+        dibujar();
+      });
+
+      dibujar();
+    </script>
+  </body>
+</html>
