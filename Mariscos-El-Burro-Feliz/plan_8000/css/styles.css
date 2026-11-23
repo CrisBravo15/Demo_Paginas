@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chango&family=Nunito:wght@400;700&display=swap');
-:root{--bg:#fbf6ea;--panel:#fffdf7;--ink:#0f2a33;--red:#c2410c;--mute:#4f6770;--line:#dccfb5;
+:root{--bg:#eef5fb;--panel:#ffffff;--ink:#1c2347;--red:#2a3d94;--mute:#4a5a73;--sea:#5aafde;--sand:#d9b97a;--hot:#d6453d;--line:#c9d9e8;
 --d:'Chango','Rockwell','Georgia',serif;--b:'Nunito','Segoe UI',Arial,sans-serif;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
@@ -8,7 +8,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 1.08rem/1.6 var(--b
 a{color:inherit}:focus-visible{outline:3px solid var(--red);outline-offset:3px}
 .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
 .demo{background:var(--ink);color:var(--bg);font-size:.85rem;text-align:center;padding:6px 12px}
-.band{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 28px,var(--bg) 28px 56px)}
+.band{height:14px;background:repeating-linear-gradient(90deg,var(--sea) 0 28px,var(--sand) 28px 56px)}
 nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;align-items:center;padding:16px 0}
 nav b{font:400 1.4rem var(--d);color:var(--red)}nav div{display:flex;gap:18px;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
@@ -35,3 +35,7 @@ input,select{font:inherit;padding:11px;background:var(--panel);color:var(--ink);
 footer{padding:28px 0 40px;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
 @media(max-width:720px){.hero{padding-top:28px}}
 .row em{color:var(--mute)}
+.price{color:var(--hot)}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.logo{width:100%;max-width:360px;justify-self:center;border-radius:16px}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.logo{order:-1;max-width:240px}}
