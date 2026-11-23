@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mariscos El Burro Feliz · Colonia Moderna</title>
+<link rel="stylesheet" href="css/styles.css"></head>
+<body><div class="demo">Demo Plan A la medida ($8,000+). Precios, horarios y teléfono son de ejemplo.</div><div class="band" aria-hidden="true"></div>
+<div class="wrap"><nav aria-label="Principal"><b>El Burro Feliz</b><div><a href="#menu">Menú</a><a href="#pedido">Pide en línea</a><a href="#cocina">Panel</a><a href="#visitanos">Visítanos</a></div></nav>
+<header class="hero"><p class="tag">Mariscos · Colonia Moderna, Monterrey</p>
+<h1>Mariscos que te ponen <span>feliz.</span></h1>
+<p class="l">Cócteles, ceviches, caldos y platillos frescos para comer aquí o llevar.</p>
+<a class="btn" href="https://wa.me/528100000000">Pedir por WhatsApp</a><a class="btn alt" href="#menu">Ver menú</a></header></div>
+<section id="menu"><div class="wrap"><h2>Nuestro menú</h2><p class="sub">Todo preparado al momento.</p><div class="grid">
+<div class="card"><h3>Cócteles</h3><ul><li>Camarón</li><li>Pulpo</li><li>Campechano</li></ul></div>
+<div class="card"><h3>Ceviches</h3><ul><li>Ceviche de pescado</li><li>Aguachile</li><li>Tostadas</li></ul></div>
+<div class="card"><h3>Caldos</h3><ul><li>Siete mares</li><li>De camarón</li><li>De pescado</li></ul></div>
+<div class="card"><h3>Platillos</h3><ul><li>Camarones a la diabla</li><li>Filete empanizado</li><li>Empanadas de camarón</li></ul></div></div></div></section>
+<section id="porque"><div class="wrap"><h2>Por qué El Burro Feliz</h2><div class="grid">
+<div class="card"><h3>Fresco</h3><p>Producto del día, sin congelados viejos.</p></div>
+<div class="card"><h3>A tu gusto</h3><p>Picante, limón y sazón como lo pidas.</p></div>
+<div class="card"><h3>Para llevar</h3><p>Pide por WhatsApp y pasa por tu orden.</p></div></div></div></section><section id="pedido"><div class="wrap"><h2>Pide en línea</h2><p class="sub">Escribe la cantidad de cada platillo y envía tu pedido por WhatsApp.</p>
+<div id="items"></div><div class="tot" id="tot">Total: $0</div>
+<form id="pedidoF"><input id="nom" placeholder="Tu nombre" aria-label="Tu nombre">
+<select id="ent" aria-label="Entrega"><option>Paso por él</option><option>A domicilio</option></select>
+<button class="btn" type="submit">Enviar pedido</button></form></div></section>
+<section id="cocina"><div class="wrap"><h2>Panel de cocina</h2><p class="sub">Aquí se cambian precios y se marca lo que se agotó. En la versión final tendría contraseña.</p>
+<div class="grid" id="admin"></div><p><button class="btn alt" id="reset" type="button">Restablecer menú</button></p></div></section>
+<section id="visitanos"><div class="wrap"><h2>Visítanos</h2>
+<p class="sub">Colonia Moderna, Monterrey, N.L.<br>Mar a dom 12:00 pm a 8:00 pm · Cerrado los lunes</p>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mariscos+El+Burro+Feliz+Moderna+Monterrey">Cómo llegar</a>
+<a class="btn alt" href="https://wa.me/528100000000">WhatsApp</a></div></section>
+<footer><div class="wrap">Demo creada por NovaWeb para Mariscos El Burro Feliz.</div></footer><script>
+const P0=[['Cóctel de camarón',140,1],['Aguachile',160,1],['Ceviche de pescado',110,1],['Tostada de pulpo',65,1],['Caldo siete mares',190,1],['Camarones a la diabla',210,1],['Filete empanizado',150,1],['Empanada de camarón',45,1]],$=i=>document.getElementById(i),Q={};
+let P;try{P=JSON.parse(localStorage.getItem('menu'))}catch(e){}
+if(!Array.isArray(P)||P.length!==P0.length)P=P0.map(x=>[...x]);
+const save=()=>{try{localStorage.setItem('menu',JSON.stringify(P))}catch(e){}};
+const tot=()=>{$('tot').textContent='Total: $'+P.reduce((s,p,i)=>s+(p[2]?p[1]*(Q[i]||0):0),0).toLocaleString('es-MX')};
+function items(){$('items').innerHTML=P.map((p,i)=>`<div class="row"><span>${p[0]}</span><span>$${p[1]}</span>`+(p[2]?`<input type="number" min="0" step="1" value="${Q[i]||''}" data-i="${i}" aria-label="Cantidad de ${p[0]}">`:'<em>Agotado</em>')+'</div>').join('');tot()}
+function admin(){$('admin').innerHTML=P.map((p,i)=>`<div class="card"><b>${p[0]}</b><br><input type="number" min="0" value="${p[1]}" data-p="${i}" aria-label="Precio de ${p[0]}"><br><label><input type="checkbox" data-a="${i}" ${p[2]?'checked':''}> Disponible</label></div>`).join('')}
+$('items').addEventListener('input',e=>{Q[e.target.dataset.i]=+e.target.value||0;tot()});
+$('admin').addEventListener('input',e=>{const d=e.target.dataset;
+if(d.p!==undefined)P[d.p][1]=+e.target.value||0;else if(d.a!==undefined)P[d.a][2]=e.target.checked?1:0;save();items()});
+$('reset').addEventListener('click',()=>{P=P0.map(x=>[...x]);save();items();admin()});
+$('pedidoF').addEventListener('submit',e=>{e.preventDefault();
+const l=P.map((p,i)=>p[2]&&Q[i]>0?Q[i]+' '+p[0]:'').filter(Boolean);if(!l.length)return;
+location.href='https://wa.me/528100000000?text='+encodeURIComponent('Hola, soy '+($('nom').value||'cliente')+'. Quiero: '+l.join(', ')+'. '+$('tot').textContent+'. Entrega: '+$('ent').value+'.')});
+items();admin();
+</script>
+</body></html>
